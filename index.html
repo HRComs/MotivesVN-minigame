@@ -1,1 +1,259 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
 
+  <!-- Giúp giao diện hiển thị đúng trên iPhone/Android -->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+
+  <title>HAPPY FRIDAY - Spot the Difference</title>
+
+  <!-- Font Google: dễ đọc trên điện thoại -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <main class="app">
+
+    <!-- =========================
+         MÀN HÌNH BẮT ĐẦU
+         ========================= -->
+    <section id="startScreen" class="screen start-screen">
+
+      <div class="logo">
+        <span class="logo-icon">★</span>
+        <span>YOUR COMPANY</span>
+      </div>
+
+      <div class="hero">
+        <div class="hero-emoji">🔎✨</div>
+
+        <h1>HAPPY<br>FRIDAY</h1>
+
+        <p class="subtitle">
+          Tìm 5 điểm khác nhau
+        </p>
+
+        <div class="nickname-box">
+          <label for="nickname">Nickname của bạn</label>
+
+          <input
+            id="nickname"
+            type="text"
+            maxlength="20"
+            placeholder="Nhập nickname..."
+            autocomplete="off"
+          />
+        </div>
+
+        <button id="startButton" class="primary-button">
+          BẮT ĐẦU
+        </button>
+
+        <p class="small-note">
+          ⏱ Bạn có 3 phút để hoàn thành
+        </p>
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         MÀN HÌNH GAME
+         ========================= -->
+    <section id="gameScreen" class="screen game-screen hidden">
+
+      <header class="game-header">
+
+        <div>
+          <div class="mini-logo">★ HAPPY FRIDAY</div>
+
+          <div class="progress-text">
+            Đã tìm: <strong id="progressText">0/5</strong>
+          </div>
+        </div>
+
+        <div class="timer-box">
+          <span class="timer-icon">⏱</span>
+          <span id="timer">03:00</span>
+        </div>
+
+      </header>
+
+
+      <div class="instruction">
+        👀 Hãy tìm 5 điểm khác nhau!
+      </div>
+
+
+      <!-- Hai hình ảnh -->
+      <div class="images-wrapper">
+
+        <!-- Hình bên trái -->
+        <div class="picture-card">
+
+          <div class="picture-title">
+            HÌNH A
+          </div>
+
+          <div class="image-container" id="imageContainerA">
+            <img
+              id="imageA"
+              alt="Hình ảnh A"
+              draggable="false"
+            />
+
+            <div
+              id="markersA"
+              class="markers-layer"
+            ></div>
+          </div>
+
+        </div>
+
+
+        <!-- Hình bên phải -->
+        <div class="picture-card">
+
+          <div class="picture-title">
+            HÌNH B
+          </div>
+
+          <div class="image-container" id="imageContainerB">
+            <img
+              id="imageB"
+              alt="Hình ảnh B"
+              draggable="false"
+            />
+
+            <div
+              id="markersB"
+              class="markers-layer"
+            ></div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <p class="wrong-hint">
+        Click sai sẽ bị +5 giây
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         MÀN HÌNH HOÀN THÀNH
+         ========================= -->
+    <section id="resultScreen" class="screen result-screen hidden">
+
+      <div class="result-card">
+
+        <div class="success-icon">
+          🎉
+        </div>
+
+        <p class="result-label">
+          HOÀN THÀNH!
+        </p>
+
+        <h2>
+          Happy Friday,
+          <span id="resultNickname">Bạn</span>!
+        </h2>
+
+        <p class="result-message">
+          Bạn đã tìm đủ 5 điểm khác nhau.
+        </p>
+
+
+        <div class="stats">
+
+          <div class="stat">
+            <span class="stat-label">
+              THỜI GIAN
+            </span>
+
+            <strong id="resultTime">
+              00:00
+            </strong>
+          </div>
+
+
+          <div class="stat">
+            <span class="stat-label">
+              SCORE
+            </span>
+
+            <strong id="resultScore">
+              0
+            </strong>
+          </div>
+
+        </div>
+
+
+        <div class="result-code-box">
+
+          <span>
+            RESULT CODE
+          </span>
+
+          <strong id="resultCode">
+            HF-000000
+          </strong>
+
+        </div>
+
+
+        <button
+          id="restartButton"
+          class="primary-button"
+        >
+          CHƠI LẠI
+        </button>
+
+
+        <button
+          id="shareButton"
+          class="secondary-button"
+        >
+          📤 CHIA SẺ KẾT QUẢ
+        </button>
+
+        <p id="shareMessage" class="share-message"></p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONFETTI
+         ========================= -->
+    <div
+      id="confettiContainer"
+      class="confetti-container"
+      aria-hidden="true"
+    ></div>
+
+  </main>
+
+
+  <script src="game.js"></script>
+
+</body>
+</html>
